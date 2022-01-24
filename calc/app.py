@@ -33,3 +33,11 @@ def div_val():
     b = int(request.args["b"])
     return  str(div(a,b))
 
+
+@app.route('/math/<operator>')
+def calculate(operator):
+    a = int(request.args["a"])
+    b = int(request.args["b"])
+    return str(operators[operator](a,b))
+
+operators={"add":add, "sub":sub,"mult":mult,"div":div}
